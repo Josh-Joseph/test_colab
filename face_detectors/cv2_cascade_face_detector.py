@@ -3,7 +3,7 @@ import cv2
 from .face_detector import FaceDetector
 
 
-_face_cascade_name = '../../utils/haarcascade_frontalface_default.xml'
+_face_cascade_name = './face_detectors/haarcascade_frontalface_default.xml'
 
 
 class CV2CascadeFaceDetector(FaceDetector):
