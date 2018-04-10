@@ -10,7 +10,6 @@ overwrite_files = True
 
 # Create list of our files that contain urls
 read_path = './data_scripts/private_proof_v1/'
-# read_path = '../data_scripts/private_proof_v1/'
 corpus_list = []
 for root, dirs, files in os.walk(read_path):
     for file in files:
@@ -18,8 +17,7 @@ for root, dirs, files in os.walk(read_path):
 
 # You could add code to create ./data if ./data doesn't exist.
 # Create private_proof_v1 directory
-write_path = './data/private_proof_v1'
-# write_path = '../data/private_proof_v1'
+write_path = './raw_data/private_proof_v1'
 if overwrite_files:
     if os.path.exists(write_path):
         shutil.rmtree(write_path)

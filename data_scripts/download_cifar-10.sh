@@ -2,12 +2,12 @@
 '
 
 # Run this script for the root of this repository.
-if [ ! -d ./data/ ]; then
-  # If data directory doesn't exist create it
-  mkdir ./data/
+if [ ! -d ./raw_data/ ]; then
+  # If raw_data directory doesn't exist create it
+  mkdir ./raw_data/
 fi
 
-wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz --directory-prefix ./data/
-tar -xvzf ./data/cifar-10-python.tar.gz --directory ./data/
-rm ./data/cifar-10-python.tar.gz
-#mv ./data/cifar-10-python ./data/cifar-10
+wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz --directory-prefix ./raw_data/
+tar -xvzf ./raw_data/cifar-10-python.tar.gz --directory ./raw_data/
+rm ./raw_data/cifar-10-python.tar.gz
+#mv ./raw_data/cifar-10-python ./raw_data/cifar-10

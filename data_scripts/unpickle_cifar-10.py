@@ -20,8 +20,8 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='bytes')
     return dict
 
-root_write = './data/cifar-10'
-root_batch = './data/cifar-10-batches-py/'
+root_write = './raw_data/cifar-10'
+root_batch = './raw_data/cifar-10-batches-py/'
 
 label_set = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 label_dict = {
@@ -45,7 +45,7 @@ for label in label_set:
     label_dir = write_path = os.path.join(root_write,label_dict[label])
     os.makedirs(label_dir)
 
-batch_list = ['data_batch_1','data_batch_2','data_batch_3','data_batch_4','data_batch_5','test_batch']
+batch_list = ['data_batch_1', 'data_batch_2', 'data_batch_3', 'data_batch_4', 'data_batch_5', 'test_batch']
 
 for batch in batch_list:
 

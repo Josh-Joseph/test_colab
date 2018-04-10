@@ -32,9 +32,9 @@ echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
 python ./data_scripts/download_private_proof_v1.py
 
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
-echo -e "\n Pushing the data folder to gs://raw_data"
+echo -e "\n Packaging the raw_data into dataset/train and dataset/dev
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
-python ./data_scripts/upload_raw_data_to_gc.py
+python ./data_scripts/package_into_train_dev.py
 
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
 echo -e "\n Done! "
