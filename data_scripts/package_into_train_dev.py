@@ -11,26 +11,26 @@ dataset_name = 'faces_vs_all'
 
 label_keys_map = {
     '0_nonface': [
-        './raw_data/private_proof_v1/architecture',
-        './raw_data/private_proof_v1/bag',
-        './raw_data/private_proof_v1/font',
-        './raw_data/private_proof_v1/insect',
-        './raw_data/private_proof_v1/landscape',
-        './raw_data/private_proof_v1/machinery',
-        './raw_data/private_proof_v1/ring',
-        './raw_data/cifar-10/airplane',
-        './raw_data/cifar-10/automobile',
-        './raw_data/cifar-10/bird',
-        './raw_data/cifar-10/cat',
-        './raw_data/cifar-10/deer',
-        './raw_data/cifar-10/dog',
-        './raw_data/cifar-10/frog',
-        './raw_data/cifar-10/horse',
-        './raw_data/cifar-10/ship',
-        './raw_data/cifar-10/truck'
+        '/content/raw_data/private_proof_v1/architecture',
+        '/content/raw_data/private_proof_v1/bag',
+        '/content/raw_data/private_proof_v1/font',
+        '/content/raw_data/private_proof_v1/insect',
+        '/content/raw_data/private_proof_v1/landscape',
+        '/content/raw_data/private_proof_v1/machinery',
+        '/content/raw_data/private_proof_v1/ring',
+        '/content/raw_data/cifar-10/airplane',
+        '/content/raw_data/cifar-10/automobile',
+        '/content/raw_data/cifar-10/bird',
+        '/content/raw_data/cifar-10/cat',
+        '/content/raw_data/cifar-10/deer',
+        '/content/raw_data/cifar-10/dog',
+        '/content/raw_data/cifar-10/frog',
+        '/content/raw_data/cifar-10/horse',
+        '/content/raw_data/cifar-10/ship',
+        '/content/raw_data/cifar-10/truck'
     ],
     '1_face': [
-        './raw_data/lfw'
+        '/content/raw_data/lfw'
     ]
 }
 
@@ -41,18 +41,13 @@ random.seed(1234)
 
 split_percentages = {'train': 80, 'dev': 20}
 
-# download the data locally
-temp_processing_path = Path('./tmp')
-temp_processing_path.mkdir(exist_ok=True)
-
 # replace the folders with their individual file paths
 label_files_map = {}
 for label, folder_paths in label_keys_map.items():
     assert type(folder_paths) is list
     label_files_map[label] = []
     for folder_path in folder_paths:
-        local_folder_name = Path(folder_path).name
-        files = sorted(Path(temp_processing_path, local_folder_name).iterdir())
+        files = sorted(Path(folder_path).iterdir())
         files = [f for f in files if f.suffix[1:].lower() in valid_file_extensions]
         label_files_map[label] += files
     assert len(label_files_map[label]) > 0
@@ -80,6 +75,10 @@ for label, refs in label_files_map.items():
         split['dev'][label] = remaining_refs[:dev_split_index]
         split['test'][label] = remaining_refs[dev_split_index:]
 
+temp_processing_path = Path('/content/tmp')
+temp_processing_path.mkdir(exist_ok=True)
+temp_processing_path = Path('/content/datasets')
+temp_processing_path.mkdir(exist_ok=True)
 # copy the images into their final dataset directory
 local_dataset_path = Path(temp_processing_path, dataset_name)
 if os.path.exists(local_dataset_path.as_posix()):
@@ -91,5 +90,3 @@ for s in split.keys():
         for image_source in split[s][label]:
             image_destination = Path(s_label_folder, Path(image_source).name)
             shutil.copy(image_source.as_posix(), image_destination.as_posix())
-
-shutil.copy('./datasets', local_dataset_path.as_posix())
