@@ -37,6 +37,4 @@ def import_images_from_directories(root_path, class_labels=None, resize_shape=(2
         Y = np.append(Y, y_c, axis=0) if Y is not None else y_c
         labels[i] = c
 
-    print("The labels are: {}".format(labels))
-
     return X / 255.0, Y
