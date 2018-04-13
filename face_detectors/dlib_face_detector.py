@@ -5,6 +5,8 @@ from .face_detector import FaceDetector
 
 class DlibFaceDetector(FaceDetector):
 
+    name = 'dlib_face_detector'
+
     def __init__(self):
         self._detector = dlib.get_frontal_face_detector()
 

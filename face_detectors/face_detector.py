@@ -3,6 +3,8 @@ import numpy as np
 
 class FaceDetector(object):
 
+    name = None
+
     def contains_a_face(self, img_or_img_array):
         assert len(img_or_img_array.shape) in [3, 4]
         assert (0.0 <= img_or_img_array).all() and (img_or_img_array <= 1.0).all()
