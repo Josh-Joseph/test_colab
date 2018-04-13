@@ -20,6 +20,5 @@ class FaceDetector(object):
         raise NotImplementedError
 
     def evaluate_against(self, attack, X_eval):
-        clean_detections = self.contains_a_face(X_eval)
-        attacked_detections = self.contains_a_face(attack(X_eval))
-        return clean_detections.sum() / len(clean_detections), attacked_detections.sum() / len(attacked_detections)
+        detections = self.contains_a_face(attack(X_eval))
+        return detections.sum() / len(detections)
