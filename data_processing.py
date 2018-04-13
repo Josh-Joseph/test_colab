@@ -40,8 +40,3 @@ def import_images_from_directories(root_path, class_labels=None, resize_shape=(2
     print("The labels are: {}".format(labels))
 
     return X / 255.0, Y
-
-
-if __name__ == "__main__":
-    X, Y = import_images_from_directories('../data/cifar-11', class_labels=['airplane', 'automobile', 'face'], max_images_per_class=100)
-    print(1)

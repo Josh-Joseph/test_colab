@@ -11,13 +11,13 @@ dataset_name = 'faces_vs_all'
 
 label_keys_map = {
     '0_nonface': [
-        '/content/raw_data/private_proof_v1/architecture',
-        '/content/raw_data/private_proof_v1/bag',
-        '/content/raw_data/private_proof_v1/font',
-        '/content/raw_data/private_proof_v1/insect',
-        '/content/raw_data/private_proof_v1/landscape',
-        '/content/raw_data/private_proof_v1/machinery',
-        '/content/raw_data/private_proof_v1/ring',
+        # '/content/raw_data/private_proof_v1/architecture',
+        # '/content/raw_data/private_proof_v1/bag',
+        # '/content/raw_data/private_proof_v1/font',
+        # '/content/raw_data/private_proof_v1/insect',
+        # '/content/raw_data/private_proof_v1/landscape',
+        # '/content/raw_data/private_proof_v1/machinery',
+        # '/content/raw_data/private_proof_v1/ring',
         '/content/raw_data/cifar-10/airplane',
         '/content/raw_data/cifar-10/automobile',
         '/content/raw_data/cifar-10/bird',
