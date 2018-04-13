@@ -18,3 +18,8 @@ class FaceDetector(object):
 
     def _detect_face(self, img):
         raise NotImplementedError
+
+    def evaluate_against(self, attack, X_eval):
+        clean_detections = self.contains_a_face(X_eval)
+        attacked_detections = self.contains_a_face(attack(X_eval))
+        return clean_detections.sum() / len(clean_detections), attacked_detections.sum() / len(attacked_detections)

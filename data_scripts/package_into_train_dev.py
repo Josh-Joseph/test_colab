@@ -3,7 +3,6 @@ from pathlib import Path
 import shutil
 import random
 from math import floor
-import yaml
 
 
 dataset_name = 'faces_vs_all'
