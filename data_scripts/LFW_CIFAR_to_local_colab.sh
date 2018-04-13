@@ -29,7 +29,7 @@ rm -rf ./raw_data/cifar-10-batches-py
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
 echo -e "\n Packaging the raw_data into dataset/train and dataset/dev"
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
-python ./data_scripts/package_into_train_dev.py
+python ./test_colab/data_scripts/package_into_train_dev.py
 
 echo -e "\n *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
 echo -e "\n Done!"
