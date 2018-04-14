@@ -11,4 +11,4 @@ class DlibFaceDetector(FaceDetector):
         self._detector = dlib.get_frontal_face_detector()
 
     def _detect_face(self, img):
-        return len(self._detector(img, 1)) > 0
+        return len(self._detector(np.asarray(img), 1)) > 0
