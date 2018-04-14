@@ -15,5 +15,5 @@ class CV2CascadeFaceDetector(FaceDetector):
         self._face_cascade.load(_face_cascade_name)
 
     def _detect_face(self, img):
-        return len(self._face_cascade.detectMultiScale(np.asarray(img * 255.0, dtype=np.uint8),
+        return len(self._face_cascade.detectMultiScale(img,
                                                        1.1, 2, 0|cv2.CASCADE_SCALE_IMAGE, (5, 5))) > 0
