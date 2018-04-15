@@ -35,9 +35,6 @@ label_keys_map = {
 
 valid_file_extensions = ['jpg', 'jpeg', 'png']
 
-random.seed(1234)
-
-
 split_percentages = {'train': 80, 'dev': 20}
 
 # replace the folders with their individual file paths
@@ -60,7 +57,7 @@ if 'test' in split_percentages:
 for label, refs in label_files_map.items():
     # Randomly mix the data for this label
     shuffled_refs = refs.copy()
-    random.shuffle(shuffled_refs)
+    random.Random(1234).shuffle(shuffled_refs)
 
     train_split_index = floor(len(shuffled_refs) * split_percentages['train'] / 100)
     split['train'][label] = shuffled_refs[:train_split_index]
