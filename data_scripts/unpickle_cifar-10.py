@@ -66,4 +66,4 @@ for batch in batch_list:
         img = np.transpose(np.reshape(img,(3, 32,32)), (1,2,0))
 
         write_path = os.path.join(root_write,label,filename)
-        plt.imsave(write_path,img)
+        plt.imsave(write_path, img)

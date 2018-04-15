@@ -1,9 +1,10 @@
+import random
 from pathlib import Path
 import numpy as np
 from PIL import Image as pil_image
 
 
-def import_images_from_directories(root_path, class_labels=None, resize_shape=(250, 250), max_images_per_class=None):
+def import_images_from_directories(root_path, class_labels=None, resize_shape=(250, 250), max_images_per_class=None, seed=0):
     root_path = Path(root_path)
 
     if class_labels is None or len(class_labels) == 0:
@@ -17,14 +18,15 @@ def import_images_from_directories(root_path, class_labels=None, resize_shape=(2
         class_label = class_path.name
         if class_label in class_labels:
             class_images = []
-            for image_path in sorted(list(class_path.iterdir()))[:max_images_per_class]:
+            class_image_paths = random.Random(seed).shuffle(list(class_path.iterdir()))[:max_images_per_class]
+            for image_path in sorted(class_image_paths):
                 try:
                     img = pil_image.open(image_path.as_posix()).convert('RGB').resize(resize_shape)
-                    class_images.append(np.asarray(img))
+                    class_images.append(np.asarray(img, dtype=np.uint8))
                 except OSError:
                     print('Unable to open file {}, skipping...'.format(image_path))
 
-            data[class_label] = np.asarray(class_images)
+            data[class_label] = np.asarray(class_images, dtype=np.uint8)
 
     assert len(data) == len(class_labels)
     class_labels = sorted(class_labels)
