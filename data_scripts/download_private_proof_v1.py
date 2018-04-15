@@ -9,7 +9,7 @@ import cv2
 overwrite_files = True
 
 # Create list of our files that contain urls
-read_path = './data_scripts/private_proof_v1/'
+read_path = './test_colab/data_scripts/private_proof_v1/'
 corpus_list = []
 for root, dirs, files in os.walk(read_path):
     for file in files:
