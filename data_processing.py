@@ -18,7 +18,9 @@ def import_images_from_directories(root_path, class_labels=None, resize_shape=(2
         class_label = class_path.name
         if class_label in class_labels:
             class_images = []
-            class_image_paths = random.Random(seed).shuffle(list(class_path.iterdir()))[:max_images_per_class]
+            class_image_paths = list(class_path.iterdir())
+            random.Random(seed).shuffle(class_image_paths)
+            class_image_paths = class_image_paths[:max_images_per_class]
             for image_path in sorted(class_image_paths):
                 try:
                     img = pil_image.open(image_path.as_posix()).convert('RGB').resize(resize_shape)
