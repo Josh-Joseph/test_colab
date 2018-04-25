@@ -10,4 +10,3 @@ fi
 wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz --directory-prefix ./raw_data/
 tar -xvzf ./raw_data/cifar-10-python.tar.gz --directory ./raw_data/
 rm ./raw_data/cifar-10-python.tar.gz
-#mv ./raw_data/cifar-10-python ./raw_data/cifar-10
